@@ -1,0 +1,24 @@
+{
+  "name": "@repo/db",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "db:generate": "drizzle-kit generate --config drizzle.config.local.ts",
+    "db:drop": "drizzle-kit drop --config drizzle.config.local.ts",
+    "db:migrate": "node --env-file=.env -r esbuild-register ./migrate.ts",
+    "db:build": "node --env-file=.env -r esbuild-register ./build_data.ts",
+    "db:prod:generate": "drizzle-kit generate:pg --config drizzle.config.prod.ts",
+    "db:prod:drop": "drizzle-kit drop --config drizzle.config.prod.ts",
+    "db:prod:migrate": "node -r esbuild-register ./migrate.ts",
+    "db:prod:build": "node --env-file=.env.prod -r esbuild-register ./build_data.ts",
+    "db:push": "drizzle-kit push:pg --config drizzle.config.local.ts",
+    "db:studio": "drizzle-kit studio --verbose --config drizzle.config.local.ts"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.30.10",
+    "postgres": "^3.4.4"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.21.2"
+  }
+}

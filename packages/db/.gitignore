@@ -1,0 +1,4 @@
+migrations/local
+
+!.env.example
+.env*
